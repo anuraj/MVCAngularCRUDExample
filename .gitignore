@@ -301,3 +301,9 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+Bundles
+*.js.map
+*.css.map
+Web.Debug.config
+Web.Release.config
