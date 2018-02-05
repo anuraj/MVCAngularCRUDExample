@@ -15,10 +15,6 @@ IF %ERRORLEVEL% NEQ 0 (
   goto error
 )
 
-:: Installing anuglar CLI :)
-echo Installing Angular CLI
-npm install @angular/cli
-
 :: Setup
 :: -----
 
@@ -41,6 +37,16 @@ IF NOT DEFINED NEXT_MANIFEST_PATH (
     SET PREVIOUS_MANIFEST_PATH=%ARTIFACTS%\manifest
   )
 )
+
+
+:: Installing node modules.
+if [ -e "$DEPLOYMENT_TARGET/ClientApp/package.json" ]; then
+  cd "$DEPLOYMENT_TARGET/ClientApp"
+  eval $NPM_CMD install --production
+  eval $NPM_CMD install --only=dev
+  exitWithMessageOnError "npm failed"
+  cd - > /dev/null
+fi
 
 IF NOT DEFINED KUDU_SYNC_CMD (
   :: Install kudu sync
