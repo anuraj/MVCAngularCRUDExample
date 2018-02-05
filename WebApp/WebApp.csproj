@@ -186,11 +186,11 @@
   </Target>
   <Target Name="AfterBuild">
   </Target>
-  -->
   <Target Name="NgDebug" BeforeTargets="Build" Condition="'$(Configuration)' == 'Debug'">
     <Exec WorkingDirectory="$(ProjectDir)ClientApp" Command="ng build -ec" />
   </Target>
   <Target Name="NgRelease" BeforeTargets="Build" Condition="'$(Configuration)' == 'Release'">
     <Exec WorkingDirectory="$(ProjectDir)ClientApp" Command="ng build --prod" />
   </Target>
+-->
 </Project>
