@@ -15,6 +15,10 @@ IF %ERRORLEVEL% NEQ 0 (
   goto error
 )
 
+:: Installing anuglar CLI :)
+echo Installing Angular CLI
+npm install @angular/cli
+
 :: Setup
 :: -----
 
