@@ -40,7 +40,7 @@ IF NOT DEFINED NEXT_MANIFEST_PATH (
 
 
 :: Installing node modules.
-cd "$DEPLOYMENT_TARGET/ClientApp"
+cd "%DEPLOYMENT_SOURCE%\ClientApp"
 call npm install --production
 call npm install --only=dev
 cd - > /dev/null
