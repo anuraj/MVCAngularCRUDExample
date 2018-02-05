@@ -41,9 +41,8 @@ IF NOT DEFINED NEXT_MANIFEST_PATH (
 
 :: Installing node modules.
 cd "$DEPLOYMENT_TARGET/ClientApp"
-eval $NPM_CMD install --production
-eval $NPM_CMD install --only=dev
-exitWithMessageOnError "npm failed"
+call npm install --production
+call npm install --only=dev
 cd - > /dev/null
 
 
