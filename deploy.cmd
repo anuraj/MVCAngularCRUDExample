@@ -40,10 +40,14 @@ IF NOT DEFINED NEXT_MANIFEST_PATH (
 
 
 :: Installing node modules.
-cd "%DEPLOYMENT_SOURCE%\ClientApp"
-call npm install --production
-call npm install --only=dev
-cd - > /dev/null
+echo =======  Installing npm  devDependancy packages: Starting at %TIME% ======= 
+IF EXIST "%DEPLOYMENT_SOURCE%\ClientApp\package.json" (
+  pushd "%DEPLOYMENT_SOURCE%\ClientApp"
+  call npm install --only=dev
+  IF !ERRORLEVEL! NEQ 0 goto error
+  popd
+)
+echo =======  Installing npm dev packages: Finished at %TIME% =======
 
 
 IF NOT DEFINED KUDU_SYNC_CMD (
