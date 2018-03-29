@@ -1,0 +1,12 @@
+version: '3'
+services: 
+  web :
+    build: .
+    depends_on: [db]
+  db:
+    image: "microsoft/mssql-server-windows-developer"
+    ports:
+      - "1433:1433"
+    environment:
+      SA_PASSWORD: "Docker@123"
+      ACCEPT_EULA: "Y"

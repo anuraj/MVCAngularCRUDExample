@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   encapsulation: ViewEncapsulation.None
 })
 export class BookDetailsComponent implements OnInit {
-  book = {};
+  book:any = {};
   constructor(private router: Router, private route: ActivatedRoute, private http: HttpClient) { }
 
   ngOnInit() {

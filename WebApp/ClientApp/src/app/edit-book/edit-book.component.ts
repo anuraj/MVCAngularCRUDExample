@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
   encapsulation: ViewEncapsulation.None
 })
 export class EditBookComponent implements OnInit {
-  book = {};
+  book : any = {};
   constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {

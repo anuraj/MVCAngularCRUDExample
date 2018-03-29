@@ -17,8 +17,14 @@ namespace WebApp.Models
     
         public WebAppContext() : base("name=WebAppContext")
         {
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<WebAppContext>());
         }
 
         public DbSet<Book> Books { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

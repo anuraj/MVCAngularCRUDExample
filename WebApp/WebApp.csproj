@@ -1,4 +1,5 @@
 ﻿<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -25,6 +26,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+    <TypeScriptToolsVersion>2.6</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -118,6 +120,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ClientApp\.gitignore" />
+    <Content Include="ClientApp\karma.conf.js" />
+    <Content Include="ClientApp\protractor.conf.js" />
+    <Content Include="ClientApp\src\app\add-book\add-book.component.css" />
+    <Content Include="ClientApp\src\app\add-book\add-book.component.html" />
+    <Content Include="ClientApp\src\app\app.component.css" />
+    <Content Include="ClientApp\src\app\app.component.html" />
+    <Content Include="ClientApp\src\app\book-details\book-details.component.css" />
+    <Content Include="ClientApp\src\app\book-details\book-details.component.html" />
+    <Content Include="ClientApp\src\app\book\book.component.css" />
+    <Content Include="ClientApp\src\app\book\book.component.html" />
+    <Content Include="ClientApp\src\app\edit-book\edit-book.component.css" />
+    <Content Include="ClientApp\src\app\edit-book\edit-book.component.html" />
+    <Content Include="ClientApp\src\favicon.ico" />
+    <Content Include="ClientApp\src\index.html" />
+    <Content Include="ClientApp\src\styles.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -136,8 +154,22 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
+    <Content Include="ClientApp\.angular-cli.json" />
+    <Content Include="ClientApp\.editorconfig" />
+    <Content Include="ClientApp\e2e\tsconfig.e2e.json" />
+    <Content Include="ClientApp\package-lock.json" />
+    <Content Include="ClientApp\package.json" />
+    <Content Include="ClientApp\README.md" />
+    <Content Include="ClientApp\src\assets\.gitkeep" />
+    <Content Include="ClientApp\src\tsconfig.app.json" />
+    <Content Include="ClientApp\src\tsconfig.spec.json" />
+    <Content Include="ClientApp\tsconfig.json" />
+    <Content Include="ClientApp\tslint.json" />
+    <Content Include="ClientApp\yarn.lock" />
     <None Include="packages.config" />
     <Content Include="Views\Home\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -148,18 +180,43 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\e2e\app.e2e-spec.ts" />
+    <TypeScriptCompile Include="ClientApp\e2e\app.po.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\add-book\add-book.component.spec.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\add-book\add-book.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\app.component.spec.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\app.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\app.module.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\book-details\book-details.component.spec.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\book-details\book-details.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\book\book.component.spec.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\book\book.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\edit-book\edit-book.component.spec.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\edit-book\edit-book.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\environments\environment.prod.ts" />
+    <TypeScriptCompile Include="ClientApp\src\environments\environment.ts" />
+    <TypeScriptCompile Include="ClientApp\src\main.ts" />
+    <TypeScriptCompile Include="ClientApp\src\polyfills.ts" />
+    <TypeScriptCompile Include="ClientApp\src\test.ts" />
+    <TypeScriptCompile Include="ClientApp\src\typings.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ProjectExtensions>
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>58896</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
@@ -180,11 +237,18 @@
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
+  <PropertyGroup>
+    <CopyAllFilesToSingleFolderForPackageDependsOn>
+      CustomCollectFiles;
+      $(CopyAllFilesToSingleFolderForPackageDependsOn);
+    </CopyAllFilesToSingleFolderForPackageDependsOn>
+  </PropertyGroup>
+  <Target Name="CustomCollectFiles">
+    <ItemGroup>
+      <_CustomFiles Include=".\Bundles\**\*" />
+      <FilesForPackagingFromProject Include="%(_CustomFiles.Identity)">
+        <DestinationRelativePath>Bundles\%(RecursiveDir)%(Filename)%(Extension)</DestinationRelativePath>
+      </FilesForPackagingFromProject>
+    </ItemGroup>
   </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>
